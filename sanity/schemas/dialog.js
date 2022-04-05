@@ -44,20 +44,7 @@ export default {
       type: 'array',
       of: [
         {
-          type: 'document',
-          fields: [
-            {
-              name: 'who',
-              title: 'Who',
-              type: 'reference',
-              to: [{ type: 'character' }],
-            },
-            {
-              name: 'japaneseText',
-              title: 'Japanese Text',
-              type: 'string',
-            },
-          ],
+          type: 'line',
         },
       ],
     },

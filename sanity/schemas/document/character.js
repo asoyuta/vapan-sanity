@@ -1,17 +1,26 @@
+import { BsPersonSquare } from 'react-icons/bs'
+
 export default {
   name: 'character',
   title: 'Character',
+  icon: BsPersonSquare,
   type: 'document',
-  fields: [
+  fieldsets: [
     {
-      name: 'name',
-      title: 'Name',
-      type: 'multilingualText',
+      name: 'social',
+      title: 'Social Media URLs',
     },
+  ],
+  fields: [
     {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
+    },
+    {
+      name: 'name',
+      title: 'Name',
+      type: 'multilingualText',
     },
     {
       name: 'image',
@@ -22,11 +31,13 @@ export default {
       name: 'youtubeUrl',
       title: 'YouTube URL',
       type: 'url',
+      fieldset: 'social',
     },
     {
       name: 'twitterUrl',
       title: 'Twitter URL',
       type: 'url',
+      fieldset: 'social',
     },
   ],
 

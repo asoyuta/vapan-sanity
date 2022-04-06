@@ -1,3 +1,5 @@
+import { ToNoRubyText } from '../../lib/ToNoRubyText'
+
 export default {
   name: 'multilingualText',
   type: 'array',
@@ -13,7 +15,6 @@ export default {
         },
         {
           name: 'text',
-          description: 'hello',
           title: 'Text',
           type: 'string',
         },
@@ -25,23 +26,8 @@ export default {
           media: 'language.image',
         },
         prepare({ text, media }) {
-          if (!text) {
-            return {
-              text: '',
-              media,
-            }
-          }
-          const textList = text.split('_')
-          var fixedText = ''
-          textList.forEach((element) => {
-            if (element.indexOf('@') != -1) {
-              fixedText += element.split('@')[0]
-            } else {
-              fixedText += element
-            }
-          })
           return {
-            title: fixedText,
+            title: ToNoRubyText(text),
             media,
           }
         },

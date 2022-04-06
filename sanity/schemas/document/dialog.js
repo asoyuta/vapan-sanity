@@ -1,7 +1,16 @@
+import { BiConversation } from 'react-icons/bi'
+
 export default {
   name: 'dialog',
   title: 'Dialog',
+  icon: BiConversation,
   type: 'document',
+  fieldsets: [
+    {
+      name: 'videoUrls',
+      title: 'Video URLs',
+    },
+  ],
   fields: [
     {
       name: 'title',
@@ -19,13 +28,15 @@ export default {
     },
     {
       name: 'originalUrl',
-      title: 'Original URL',
+      title: 'Original Video',
       type: 'url',
+      fieldset: 'videoUrls',
     },
     {
       name: 'clipUrl',
-      title: 'Clip URL',
+      title: 'Clip Video',
       type: 'url',
+      fieldset: 'videoUrls',
     },
     {
       name: 'characters',

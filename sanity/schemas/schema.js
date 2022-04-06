@@ -5,11 +5,12 @@ import createSchema from 'part:@sanity/base/schema-creator'
 import schemaTypes from 'all:part:@sanity/base/schema-type'
 
 // We import object and document schemas
-import character from './character'
-import dialog from './dialog'
-import line from './line'
-import language from './language'
-import multilingualText from './multilingualText'
+import character from './document/character'
+import dialog from './document/dialog'
+import language from './document/language'
+
+import line from './object/line'
+import multilingualText from './object/multilingualText'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({

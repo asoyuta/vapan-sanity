@@ -1,13 +1,15 @@
 import React from 'react'
+import { ToFuriganaList } from '../lib/ToFuriganaList'
 
 type Props = {
-  nihongo: string[]
-  furigana: string[]
+  text: string
   furiOn: boolean
-  className: string
+  className?: string
 }
 
-function Furigana({ nihongo, furigana, furiOn, className }: Props) {
+function Furigana({ text, furiOn, className }: Props) {
+  const [nihongo, furigana] = ToFuriganaList(text)
+
   return (
     <>
       {furiOn ? (

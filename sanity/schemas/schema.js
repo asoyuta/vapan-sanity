@@ -23,10 +23,10 @@ export default createSchema({
     // in the studio.
     character,
     dialog,
-    language,
+    // language,
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
     line,
-    multilingualText,
+    // multilingualText,
   ]),
 })

@@ -3,30 +3,49 @@ import { ToNoRubyText } from '../../lib/ToNoRubyText'
 export default {
   name: 'line',
   type: 'object',
+  fieldsets: [
+    {
+      name: 'text',
+      title: 'Text',
+    },
+  ],
   fields: [
     {
-      name: 'who',
-      title: 'Who',
+      name: 'character',
+      title: 'Character',
       type: 'reference',
       to: [{ type: 'character' }],
     },
     {
-      name: 'lineText',
-      title: 'Line Text',
-      type: 'multilingualText',
+      name: 'original',
+      title: 'Original',
+      type: 'string',
+      fieldset: 'text',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'translation',
+      title: 'Translation',
+      type: 'string',
+      fieldset: 'text',
+    },
+    {
+      name: 'description',
+      title: 'Description',
+      type: 'text',
     },
   ],
 
   preview: {
     select: {
-      text1: 'lineText[0].text',
-      text2: 'lineText[1].text',
-      media: 'who.image',
+      original: 'original',
+      translation: 'translation',
+      media: 'character.image',
     },
-    prepare({ text1, text2, media }) {
+    prepare({ original, translation, media }) {
       return {
-        title: ToNoRubyText(text1),
-        subtitle: ToNoRubyText(text2),
+        title: ToNoRubyText(original),
+        subtitle: ToNoRubyText(translation),
         media,
       }
     },

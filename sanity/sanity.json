@@ -1,7 +1,7 @@
 {
   "root": true,
   "project": {
-    "name": "vapan-sanity"
+    "name": "vapan"
   },
   "api": {
     "projectId": "u3nb3tlb",
@@ -15,9 +15,7 @@
   ],
   "env": {
     "development": {
-      "plugins": [
-        "@sanity/vision"
-      ]
+      "plugins": ["@sanity/vision"]
     }
   },
   "parts": [

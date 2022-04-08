@@ -16,6 +16,7 @@ export default {
       name: 'title',
       title: 'Title',
       type: 'string',
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'slug',
@@ -25,6 +26,7 @@ export default {
         source: 'title',
         maxLength: 96,
       },
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'originalUrl',
@@ -48,16 +50,18 @@ export default {
           to: { type: 'character' },
         },
       ],
+      validation: (Rule) => Rule.required(),
     },
     {
-      name: 'dialogText',
-      title: 'Dialog Text',
+      name: 'lines',
+      title: 'Lines',
       type: 'array',
       of: [
         {
           type: 'line',
         },
       ],
+      validation: (Rule) => Rule.required(),
     },
   ],
 }

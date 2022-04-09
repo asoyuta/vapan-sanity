@@ -1,4 +1,4 @@
-import { urlFor } from '../../sanity'
+import { urlFor } from '../../../sanity'
 import {
   MenuIcon,
   PlusIcon,
@@ -7,8 +7,8 @@ import {
   MicrophoneIcon,
 } from '@heroicons/react/outline'
 import { useState } from 'react'
-import { FirstLine, SecondLine, ThirdLine, Toggle } from '../../components'
-import { Character, Line } from '../../typing'
+import { FirstLine, SecondLine, ThirdLine, Toggle } from '..'
+import { Character, Line } from '../../../typing'
 
 type Props = {
   title: string

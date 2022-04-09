@@ -10,6 +10,8 @@
 # testing
 /coverage
 
+/src/studio/node_modules
+
 # next.js
 /.next/
 /out/

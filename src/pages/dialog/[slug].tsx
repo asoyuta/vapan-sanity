@@ -1,6 +1,6 @@
 import { GetServerSideProps } from 'next'
-import { sanityClient } from '../../sanity'
-import { Dialog } from '../../typing'
+import { sanityClient } from '../../../sanity'
+import { Dialog } from '../../../typing'
 import { ChatScreen } from '../../components'
 
 type Props = {

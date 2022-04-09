@@ -29,4 +29,7 @@ export type Dialog = {
   originalUrl: string
   clipUrl: string
   lines: Line[]
+  slug: {
+    current: string
+  }
 }

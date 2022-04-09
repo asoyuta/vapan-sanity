@@ -61,14 +61,16 @@ function FirstLine({
           }`}
         >
           <div className="flex flex-col items-end text-center">
-            <Furigana
-              text={original}
-              furiOn={furiOn}
-              className=" text-base sm:text-lg"
-            />
-            {tranOn && translation && (
-              <p className="pt-2 text-sm sm:text-base">{translation}</p>
-            )}
+            <div className="flex flex-col items-center">
+              <Furigana
+                text={original}
+                furiOn={furiOn}
+                className=" text-base sm:text-lg"
+              />
+              {tranOn && translation && (
+                <p className="pt-2 text-sm sm:text-base">{translation}</p>
+              )}
+            </div>
           </div>
           {description && (
             <div className="flex flex-col pt-2">

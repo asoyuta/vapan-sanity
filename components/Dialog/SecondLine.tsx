@@ -44,7 +44,7 @@ function SecondLine({
         )}
       </div>
 
-      <div className={`ml-2 flex flex-col sm:ml-4`}>
+      <div className={`ml-2 flex flex-col items-start sm:ml-4`}>
         {/* Name */}
         {showIcon && (
           <p
@@ -59,14 +59,16 @@ function SecondLine({
           className={`rounded-xl bg-white p-4 ${showIcon && 'rounded-tl-none'}`}
         >
           <div className="flex flex-col items-start text-center">
-            <Furigana
-              text={original}
-              furiOn={furiOn}
-              className="text-base sm:text-lg"
-            />
-            {tranOn && translation && (
-              <p className="pt-2 text-sm sm:text-base">{translation}</p>
-            )}
+            <div className="flex flex-col items-center">
+              <Furigana
+                text={original}
+                furiOn={furiOn}
+                className="text-base sm:text-lg"
+              />
+              {tranOn && translation && (
+                <p className="pt-2 text-sm sm:text-base">{translation}</p>
+              )}
+            </div>
           </div>
           {description && (
             <div className="mt-2 flex flex-col">

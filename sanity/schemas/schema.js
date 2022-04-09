@@ -7,10 +7,9 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 // We import object and document schemas
 import character from './document/character'
 import dialog from './document/dialog'
-import language from './document/language'
+import siteSettings from './document/siteSettings'
 
 import line from './object/line'
-import multilingualText from './object/multilingualText'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -23,10 +22,9 @@ export default createSchema({
     // in the studio.
     character,
     dialog,
-    // language,
+    siteSettings,
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
     line,
-    // multilingualText,
   ]),
 })

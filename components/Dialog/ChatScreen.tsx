@@ -25,10 +25,10 @@ function ChatScreen({ title, lines, characters }: Props) {
   var previousName = 'DEFAULT'
 
   return (
-    <div>
+    <div className="mx-auto lg:h-[90vh] lg:w-[1024px] lg:rounded-3xl lg:bg-slate-800 lg:px-6 lg:py-6">
       {/* Top */}
-      <div className="relative top-0 flex items-center justify-between bg-sky-900 p-2 text-white">
-        <p className="truncate pr-2 text-lg font-light">{title}</p>
+      <div className="relative top-0 flex items-center justify-between bg-sky-900 p-2 px-6 text-white lg:rounded-t-xl">
+        <p className="truncate pr-2 text-lg font-light sm:text-xl">{title}</p>
         {/* Right */}
         <div className="flex cursor-pointer items-center space-x-1">
           <MenuIcon
@@ -38,12 +38,12 @@ function ChatScreen({ title, lines, characters }: Props) {
         </div>
         {/* Settings */}
         <div
-          className={`absolute top-14 right-2 z-50 flex flex-col items-end space-y-1 rounded-md bg-white p-3 text-black opacity-95 ${
+          className={`absolute top-14 right-2 z-50 flex flex-col items-end space-y-3 rounded-md bg-white p-3 text-black opacity-95 sm:top-16 sm:right-4 ${
             !settingOpen && 'hidden'
           }`}
         >
-          <div className="flex flex-shrink-0 items-center space-x-3">
-            <p>1st Person</p>
+          <div className="flex flex-shrink-0 items-center space-x-3 sm:space-x-5">
+            <p className="text-base">1st Person</p>
             <div
               className="relative h-12 w-12 rounded-full bg-gray-300"
               onClick={() =>
@@ -59,19 +59,19 @@ function ChatScreen({ title, lines, characters }: Props) {
             </div>
           </div>
 
-          <div className="flex space-x-3">
-            <p>Translation</p>
+          <div className="flex space-x-3 sm:space-x-5">
+            <p className="text-base">Translation</p>
             <Toggle toggled={tranOn} onClick={() => setTranOn(!tranOn)} />
           </div>
-          <div className="flex space-x-3">
-            <p>Furigana</p>
+          <div className="flex space-x-3 sm:space-x-5">
+            <p className="text-base">Furigana</p>
             <Toggle toggled={furiOn} onClick={() => setFuriOn(!furiOn)} />
           </div>
         </div>
       </div>
 
       {/* Chat */}
-      <div className="h-[calc(100vh-96px)] overflow-scroll bg-sky-400 px-3 scrollbar-hide">
+      <div className="h-[calc(100vh-96px)] overflow-scroll bg-sky-400 px-3 pb-5 scrollbar-hide sm:px-5 lg:h-[calc(90vh-144px)]">
         {lines.map(({ character, original, translation, description }, i) => {
           if (character) {
             const isFirst =
@@ -124,16 +124,10 @@ function ChatScreen({ title, lines, characters }: Props) {
             )
           }
         })}
-
-        <div className="my-5 flex items-center">
-          <p className="mx-auto inline-block rounded-md bg-blue-400 p-2 text-center text-sm text-white sm:px-4 sm:text-base">
-            Conversation ends here...
-          </p>
-        </div>
       </div>
 
       {/* Decolation */}
-      <div className="top-0 flex justify-between bg-slate-600 p-2 text-white">
+      <div className="top-0 flex justify-between bg-slate-600 p-2 text-white lg:rounded-b-xl">
         {/* Left */}
         <div className="flex space-x-1">
           <PlusIcon className="h-8 w-8" />

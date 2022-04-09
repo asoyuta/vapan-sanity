@@ -11,10 +11,8 @@ function DialogDetail({ dialog }: Props) {
   const { title, lines, characters } = dialog
 
   return (
-    <div className=" bg-gradient-to-br from-cyan-700 to-sky-300">
-      <div className="mx-auto max-w-5xl ">
-        <ChatScreen title={title} lines={lines} characters={characters} />
-      </div>
+    <div className="min-h-screen bg-gradient-to-br from-cyan-700 to-sky-300 lg:flex lg:items-center">
+      <ChatScreen title={title} lines={lines} characters={characters} />
     </div>
   )
 }

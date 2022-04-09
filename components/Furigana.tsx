@@ -10,21 +10,26 @@ type Props = {
 function Furigana({ text, furiOn, className }: Props) {
   const [nihongo, furigana] = ToFuriganaList(text)
 
-  return (
-    <>
-      {furiOn ? (
-        <ruby className={`${className}`}>
-          {nihongo.map((_, i) => (
-            <React.Fragment key={i}>
-              {nihongo[i]} <rt>{furigana[i]}</rt>
-            </React.Fragment>
-          ))}
-        </ruby>
-      ) : (
-        <>{nihongo.join('')}</>
-      )}
-    </>
-  )
+  if (furiOn) {
+    return (
+      <p className={className}>
+        {furigana.map((_, i) => (
+          <>
+            {furigana[i] ? (
+              <ruby>
+                {nihongo[i]}
+                <rt>{furigana[i]}</rt>
+              </ruby>
+            ) : (
+              nihongo[i]
+            )}
+          </>
+        ))}
+      </p>
+    )
+  } else {
+    return <p className={className}>{nihongo.join('')}</p>
+  }
 }
 
 export default Furigana

@@ -12,6 +12,10 @@ export default {
       title: 'Name',
     },
     {
+      name: 'shortName',
+      title: 'Short Name',
+    },
+    {
       name: 'social',
       title: 'Social Media URLs',
     },
@@ -29,6 +33,20 @@ export default {
       title: 'English',
       type: 'string',
       fieldset: 'name',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'japaneseShortName',
+      title: 'Japanese',
+      type: 'string',
+      fieldset: 'shortName',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'englishShortName',
+      title: 'English',
+      type: 'string',
+      fieldset: 'shortName',
       validation: (Rule) => Rule.required(),
     },
     {

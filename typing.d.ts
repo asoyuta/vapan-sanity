@@ -7,6 +7,8 @@ type Image = {
 export type Character = {
   japaneseName: string
   englishName: string
+  japaneseShortName: string
+  englishShortName: string
   image: Image
   slug: {
     current: string
@@ -24,7 +26,10 @@ type Line = {
 
 export type Dialog = {
   _id: string
+  _createdAt: string
   title: string
+  mainImage: Image
+  description: string
   characters: Character[]
   originalUrl: string
   clipUrl: string

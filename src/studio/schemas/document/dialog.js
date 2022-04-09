@@ -29,6 +29,17 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
+      name: 'mainImage',
+      title: 'Main Image',
+      type: 'image',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'description',
+      title: 'Description',
+      type: 'text',
+    },
+    {
       name: 'originalUrl',
       title: 'Original Video',
       type: 'url',

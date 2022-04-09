@@ -27,7 +27,7 @@ function ChatScreen({ title, lines, characters }: Props) {
   return (
     <div className="mx-auto lg:h-[90vh] lg:w-[1024px] lg:rounded-3xl lg:bg-slate-800 lg:px-6 lg:py-6">
       {/* Top */}
-      <div className="relative top-0 flex items-center justify-between bg-sky-900 p-2 px-6 text-white lg:rounded-t-xl">
+      <div className="relative top-0 flex items-center justify-between bg-sky-900 p-2 text-white sm:px-6 lg:rounded-t-xl">
         <p className="truncate pr-2 text-lg font-light sm:text-xl">{title}</p>
         {/* Right */}
         <div className="flex cursor-pointer items-center space-x-1">

@@ -1,11 +1,6 @@
 import { ChevronDoubleDownIcon } from '@heroicons/react/solid'
 import Image from 'next/image'
 import { useState } from 'react'
-import { useAppDispatch, useAppSelector } from '../../redux/app/hooks'
-import {
-  selectShowFurigana,
-  selectShowTranslation,
-} from '../../redux/Dialog/dialogSlice'
 import Furigana from '../Furigana'
 
 type Props = {
@@ -15,6 +10,8 @@ type Props = {
   translation: string
   description: string
   showIcon: boolean
+  furiOn: boolean
+  tranOn: boolean
 }
 
 function FirstLine({
@@ -24,11 +21,9 @@ function FirstLine({
   translation,
   description,
   showIcon,
+  furiOn,
+  tranOn,
 }: Props) {
-  const dispatch = useAppDispatch()
-  const showTranslation = useAppSelector(selectShowTranslation)
-  const showFurigana = useAppSelector(selectShowFurigana)
-
   const [descOpen, setDescOpen] = useState(false)
 
   return (
@@ -67,8 +62,12 @@ function FirstLine({
         >
           <div className="flex flex-col items-end text-center">
             <div className="flex flex-col items-center">
-              <Furigana text={original} className=" text-base sm:text-lg" />
-              {showTranslation && translation && (
+              <Furigana
+                text={original}
+                furiOn={furiOn}
+                className=" text-base sm:text-lg"
+              />
+              {tranOn && translation && (
                 <p className="pt-2 text-sm sm:text-base">{translation}</p>
               )}
             </div>

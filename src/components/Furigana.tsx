@@ -1,16 +1,18 @@
 import React from 'react'
 import { ToFuriganaList } from '../lib/ToFuriganaList'
+import { useAppSelector } from '../redux/app/hooks'
+import { selectShowFurigana } from '../redux/Dialog/dialogSlice'
 
 type Props = {
   text: string
-  furiOn: boolean
   className?: string
 }
 
-function Furigana({ text, furiOn, className }: Props) {
+function Furigana({ text, className }: Props) {
+  const showFurigana = useAppSelector(selectShowFurigana)
   const [nihongo, furigana] = ToFuriganaList(text)
 
-  if (furiOn) {
+  if (showFurigana) {
     return (
       <p className={className}>
         {furigana.map((_, i) => (

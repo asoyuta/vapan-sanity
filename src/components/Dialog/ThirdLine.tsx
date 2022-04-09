@@ -1,33 +1,30 @@
 import { ChevronDoubleDownIcon } from '@heroicons/react/solid'
 import { useState } from 'react'
+import { useAppSelector } from '../../redux/app/hooks'
+import {
+  selectShowFurigana,
+  selectShowTranslation,
+} from '../../redux/Dialog/dialogSlice'
 import Furigana from '../Furigana'
 
 type Props = {
   original: string
   translation: string
   description: string
-  furiOn: boolean
-  tranOn: boolean
 }
 
-function ThirdLine({
-  original,
-  translation,
-  description,
-  furiOn,
-  tranOn,
-}: Props) {
+function ThirdLine({ original, translation, description }: Props) {
+  const showTranslation = useAppSelector(selectShowTranslation)
+  const showFurigana = useAppSelector(selectShowFurigana)
   const [descOpen, setDescOpen] = useState(false)
 
   return (
     <div className="flex justify-center">
       <div className="mx-5 mt-5 flex flex-col items-center rounded-xl bg-sky-500 px-4 py-2 text-white sm:py-4">
-        <Furigana
-          text={original}
-          furiOn={furiOn}
-          className="text-base sm:text-lg"
-        />
-        {tranOn && <p className="text-sm sm:text-base">{translation}</p>}
+        <Furigana text={original} className="text-base sm:text-lg" />
+        {showTranslation && (
+          <p className="text-sm sm:text-base">{translation}</p>
+        )}
         {description && (
           <div className="mt-1 flex flex-col">
             <div className={`flex justify-center`}>

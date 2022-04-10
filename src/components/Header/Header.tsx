@@ -12,7 +12,7 @@ function Header() {
         onClick={() => router.push('/')}
         className="relative h-[30px] w-[124px] cursor-pointer sm:h-[40px] sm:w-[165px] lg:h-[50px] lg:w-[206px]"
       >
-        <Image src={logo} layout="fill" objectFit="fill" />
+        <Image src={logo} layout="fill" objectFit="fill" alt="Logo" />
       </div>
     </header>
   )

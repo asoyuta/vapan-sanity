@@ -1,22 +1,31 @@
-import { urlFor } from '../../../sanity'
-import { Character, Line } from '../../../typing'
-import { useAppSelector } from '../../redux/app/hooks'
-import { selectFirstPersonId } from '../../redux/Dialog/dialogSlice'
-import FirstLine from './FirstLine'
-import SecondLine from './SecondLine'
-import ThirdLine from './ThirdLine'
+import { urlFor } from '../../../../sanity'
+import { useAppSelector } from '../../../redux/app/hooks'
+import {
+  selectDialog,
+  selectFirstPersonId,
+  selectShowClip,
+} from '../../../redux/Dialog/dialogSlice'
+import FirstLine from '../Line/FirstLine'
+import SecondLine from '../Line/SecondLine'
+import ThirdLine from '../Line/ThirdLine'
 
-type Props = {
-  lines: Line[]
-  characters: Character[]
-}
-
-function ChatMain({ lines, characters }: Props) {
+function ChatMain() {
   const firstPersonId = useAppSelector(selectFirstPersonId)
+  const dialog = useAppSelector(selectDialog)
+  const { lines, characters } = dialog
+
+  const showClip = useAppSelector(selectShowClip)
+
   var previousName = 'DEFAULT'
 
   return (
-    <div className="h-[calc(100vh-96px)] overflow-scroll bg-sky-400 px-3 pb-5 scrollbar-hide sm:px-5 lg:h-[calc(90vh-144px)]">
+    <div
+      className={`overflow-scroll bg-sky-400 px-3 pb-5 scrollbar-hide sm:px-5 ${
+        showClip
+          ? 'h-[calc(100vh-96px-56.25vw)] sm:h-[calc(100vh-464px)] lg:h-[calc(90vh-512px)]'
+          : 'h-[calc(100vh-96px)] lg:h-[calc(90vh-144px)]'
+      }`}
+    >
       {lines.map(({ character, original, translation, description }, i) => {
         if (character) {
           const isFirst =

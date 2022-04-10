@@ -1,11 +1,8 @@
 import { ChevronDoubleDownIcon } from '@heroicons/react/solid'
 import { useState } from 'react'
-import { useAppSelector } from '../../redux/app/hooks'
-import {
-  selectShowFurigana,
-  selectShowTranslation,
-} from '../../redux/Dialog/dialogSlice'
-import Furigana from '../Furigana'
+import { useAppSelector } from '../../../redux/app/hooks'
+import { selectShowTranslation } from '../../../redux/Dialog/dialogSlice'
+import Furigana from '../../Furigana'
 
 type Props = {
   original: string
@@ -15,7 +12,6 @@ type Props = {
 
 function ThirdLine({ original, translation, description }: Props) {
   const showTranslation = useAppSelector(selectShowTranslation)
-  const showFurigana = useAppSelector(selectShowFurigana)
   const [descOpen, setDescOpen] = useState(false)
 
   return (

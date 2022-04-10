@@ -20,7 +20,7 @@ const Home = ({ dialogs }: Props) => {
     <div className="flex h-screen flex-col items-center justify-center space-y-10 bg-gradient-to-tl from-sky-700 to-sky-50">
       {/* logo / h:w = 1 : 4.12 */}
       <div className="relative h-[60px] w-[248px] cursor-pointer sm:h-[40px] sm:w-[165px] lg:h-[200px] lg:w-[824px]">
-        <Image src={logo} layout="fill" objectFit="fill" />
+        <Image src={logo} layout="fill" objectFit="fill" alt="Logo" />
       </div>
 
       <main>
@@ -36,7 +36,8 @@ const Home = ({ dialogs }: Props) => {
                   <Image
                     src={urlFor(mainImage).url()}
                     layout="fill"
-                    objectFit="cover"
+                    objectFit="fill"
+                    alt="Main Image"
                   />
                 </div>
                 <div className="space-y-1">

@@ -1,3 +1,4 @@
+import React from 'react'
 import { ToFuriganaList } from '../lib/ToFuriganaList'
 import { useAppSelector } from '../redux/app/hooks'
 import { selectShowFurigana } from '../redux/Dialog/dialogSlice'
@@ -15,7 +16,7 @@ function Furigana({ text, className }: Props) {
     return (
       <p className={className}>
         {furigana.map((_, i) => (
-          <>
+          <React.Fragment key={i}>
             {furigana[i] ? (
               <ruby>
                 {nihongo[i]}
@@ -24,7 +25,7 @@ function Furigana({ text, className }: Props) {
             ) : (
               nihongo[i]
             )}
-          </>
+          </React.Fragment>
         ))}
       </p>
     )

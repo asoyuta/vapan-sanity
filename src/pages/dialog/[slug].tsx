@@ -2,17 +2,20 @@ import { GetServerSideProps } from 'next'
 import { sanityClient } from '../../../sanity'
 import { Dialog } from '../../../typing'
 import { ChatScreen } from '../../components'
+import { useAppDispatch } from '../../redux/app/hooks'
+import { setDialog } from '../../redux/Dialog/dialogSlice'
 
 type Props = {
   dialog: Dialog
 }
 
 function DialogDetail({ dialog }: Props) {
-  const { title, lines, characters } = dialog
+  const dispatch = useAppDispatch()
+  dispatch(setDialog(dialog))
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-cyan-700 to-sky-300 lg:flex lg:items-center">
-      <ChatScreen title={title} lines={lines} characters={characters} />
+      <ChatScreen />
     </div>
   )
 }
@@ -24,6 +27,10 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
     *[_type == "dialog" && slug.current == $slug][0]{
       _id,
       title,
+      mainImage {
+        asset
+      },
+      description,
       characters[]->{
         japaneseName,
         englishName,

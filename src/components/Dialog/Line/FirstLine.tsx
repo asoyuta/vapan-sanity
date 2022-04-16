@@ -1,6 +1,7 @@
 import { ChevronDoubleDownIcon } from '@heroicons/react/solid'
 import Image from 'next/image'
 import { useState } from 'react'
+import { LinePortableText } from '../..'
 import { useAppSelector } from '../../../redux/app/hooks'
 import { selectShowTranslation } from '../../../redux/Dialog/dialogSlice'
 import Furigana from '../../Furigana'
@@ -10,7 +11,7 @@ type Props = {
   icon: string
   original: string
   translation: string
-  description: string
+  description: object[]
   showIcon: boolean
 }
 
@@ -86,11 +87,9 @@ function FirstLine({
                 </div>
               </div>
               {descOpen && (
-                <p
-                  className={`rounded-md bg-lime-500 p-2 text-sm sm:text-base`}
-                >
-                  {description}
-                </p>
+                <div className="rounded-md bg-lime-500 p-2">
+                  <LinePortableText content={description} />
+                </div>
               )}
             </div>
           )}

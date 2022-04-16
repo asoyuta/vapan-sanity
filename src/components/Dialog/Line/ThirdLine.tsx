@@ -1,5 +1,6 @@
 import { ChevronDoubleDownIcon } from '@heroicons/react/solid'
 import { useState } from 'react'
+import { LinePortableText } from '../..'
 import { useAppSelector } from '../../../redux/app/hooks'
 import { selectShowTranslation } from '../../../redux/Dialog/dialogSlice'
 import Furigana from '../../Furigana'
@@ -7,7 +8,7 @@ import Furigana from '../../Furigana'
 type Props = {
   original: string
   translation: string
-  description: string
+  description: object[]
 }
 
 function ThirdLine({ original, translation, description }: Props) {
@@ -38,9 +39,9 @@ function ThirdLine({ original, translation, description }: Props) {
               </div>
             </div>
             {descOpen && (
-              <p className={`rounded-md bg-sky-600 p-2 text-sm sm:text-base`}>
-                {description}
-              </p>
+              <div className="rounded-md bg-sky-600 p-2">
+                <LinePortableText content={description} />
+              </div>
             )}
           </div>
         )}

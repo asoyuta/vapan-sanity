@@ -1,6 +1,6 @@
 import { ToNoRubyText } from '../../lib/ToNoRubyText'
 
-export default {
+const multilingualText = {
   name: 'multilingualText',
   type: 'array',
   of: [
@@ -35,3 +35,5 @@ export default {
     },
   ],
 }
+
+export default multilingualText

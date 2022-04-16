@@ -1,6 +1,53 @@
 import { ToNoRubyText } from '../../lib/ToNoRubyText'
+import { ToFuriganaList } from '../../lib/ToFuriganaList'
+import React from 'react'
 
-export default {
+const furiganaIcon = () => {
+  return (
+    <ruby>
+      漢<rt>かん</rt>
+    </ruby>
+  )
+}
+
+const furiganaRender = ({ children }) => {
+  const [nihongo, furigana, nihongoFalse, furiganaFalse] = ToFuriganaList(
+    children.props.text.text
+  )
+
+  return (
+    <span>
+      <span style={{ backgroundColor: '#F5F5F5', display: 'block' }}>
+        {children}
+      </span>
+      <span style={{ backgroundColor: '#DCDCDC', display: 'block' }}>
+        {furigana.map((_, i) => (
+          <React.Fragment key={i}>
+            {furigana[i] ? (
+              <ruby style={{ color: `${nihongoFalse[i] ? 'red' : 'black'}` }}>
+                {nihongo[i]}
+                <rt style={{ color: `${furiganaFalse[i] ? 'red' : 'black'}` }}>
+                  {furigana[i]}
+                </rt>
+              </ruby>
+            ) : (
+              <>
+                {nihongoFalse[i] ? (
+                  <span style={{ color: 'red' }}>{nihongo[i]}</span>
+                ) : (
+                  nihongo[i]
+                )}
+              </>
+            )}
+          </React.Fragment>
+        ))}
+      </span>
+    </span>
+  )
+}
+
+const line = {
+  title: 'Line',
   name: 'line',
   type: 'object',
   fieldsets: [
@@ -32,7 +79,49 @@ export default {
     {
       name: 'description',
       title: 'Description',
-      type: 'text',
+      type: 'array',
+      of: [
+        {
+          type: 'block',
+          styles: [
+            { title: 'Normal', value: 'normal' },
+            { title: 'H1', value: 'h1' },
+            { title: 'H2', value: 'h2' },
+          ],
+          lists: [
+            { title: 'Bullet', value: 'bullet' },
+            { title: 'Numbered', value: 'number' },
+          ],
+          marks: {
+            decorators: [
+              { title: 'Strong', value: 'strong' },
+              { title: 'Emphasis', value: 'em' },
+              {
+                title: 'Furigana',
+                value: 'furigana',
+                blockEditor: {
+                  icon: furiganaIcon,
+                  render: furiganaRender,
+                },
+              },
+            ],
+            annotations: [
+              {
+                title: 'Link',
+                name: 'link',
+                type: 'object',
+                fields: [
+                  {
+                    title: 'URL',
+                    name: 'href',
+                    type: 'url',
+                  },
+                ],
+              },
+            ],
+          },
+        },
+      ],
     },
   ],
 
@@ -46,8 +135,10 @@ export default {
       return {
         title: ToNoRubyText(original),
         subtitle: ToNoRubyText(translation),
-        media,
+        media: media,
       }
     },
   },
 }
+
+export default line

@@ -6,28 +6,43 @@ import { selectShowFurigana } from '../redux/Dialog/dialogSlice'
 type Props = {
   text: string
   className?: string
+  furiOn?: boolean
 }
 
-function Furigana({ text, className }: Props) {
+function Furigana({ text, className, furiOn }: Props) {
   const showFurigana = useAppSelector(selectShowFurigana)
-  const [nihongo, furigana] = ToFuriganaList(text)
+  const [nihongo, furigana, nihongoFalse, furiganaFalse] = ToFuriganaList(text)
 
-  if (showFurigana) {
+  if (showFurigana || furiOn) {
     return (
-      <p className={className}>
+      <span className={className}>
         {furigana.map((_, i) => (
           <React.Fragment key={i}>
             {furigana[i] ? (
-              <ruby>
+              <ruby
+                className={`${nihongoFalse[i] ? 'text-red-500' : 'text-black'}`}
+              >
                 {nihongo[i]}
-                <rt>{furigana[i]}</rt>
+                <rt
+                  className={`${
+                    furiganaFalse[i] ? 'text-red-500' : 'text-black'
+                  }`}
+                >
+                  {furigana[i]}
+                </rt>
               </ruby>
             ) : (
-              nihongo[i]
+              <>
+                {nihongoFalse[i] ? (
+                  <span className="text-red-500">{nihongo[i]}</span>
+                ) : (
+                  nihongo[i]
+                )}
+              </>
             )}
           </React.Fragment>
         ))}
-      </p>
+      </span>
     )
   } else {
     return <p className={className}>{nihongo.join('')}</p>

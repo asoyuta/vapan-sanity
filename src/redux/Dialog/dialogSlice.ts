@@ -35,7 +35,7 @@ export interface DialogState {
       }
       original: string
       translation: string
-      description: string
+      description: object[]
     }[]
     slug: {
       current: string

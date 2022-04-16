@@ -1,6 +1,6 @@
 import { BiConversation } from 'react-icons/bi'
 
-export default {
+const dialog = {
   name: 'dialog',
   title: 'Dialog',
   icon: BiConversation,
@@ -76,3 +76,5 @@ export default {
     },
   ],
 }
+
+export default dialog

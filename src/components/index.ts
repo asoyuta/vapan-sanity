@@ -8,6 +8,7 @@ export { default as ChatSettings } from './Dialog/Chat/ChatSettings'
 
 // Dialog/Line
 export { default as FirstLine } from './Dialog/Line/FirstLine'
+export { default as LinePortableText } from './Dialog/Line/LinePortableText'
 export { default as SecondLine } from './Dialog/Line/SecondLine'
 export { default as ThirdLine } from './Dialog/Line/ThirdLine'
 
@@ -18,4 +19,5 @@ export { default as Header } from './Header/Header'
 export { default as Toggle } from './UIkit/Toggle'
 
 export { default as Furigana } from './Furigana'
+export { default as NaturalImage } from './NaturalImage'
 export { default as VideoPlayer } from './VideoPlayer'

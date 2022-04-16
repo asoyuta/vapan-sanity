@@ -1,7 +1,7 @@
 import { BsPersonSquare } from 'react-icons/bs'
 import { ToNoRubyText } from '../../lib/ToNoRubyText'
 
-export default {
+const character = {
   name: 'character',
   title: 'Character',
   icon: BsPersonSquare,
@@ -93,3 +93,5 @@ export default {
     },
   },
 }
+
+export default character

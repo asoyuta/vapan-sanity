@@ -1,6 +1,6 @@
 import S from '@sanity/desk-tool/structure-builder'
 
-export default () =>
+const deskStructure = () =>
   S.list()
     .title('Base')
     .items([
@@ -14,3 +14,5 @@ export default () =>
         (item) => !['siteSettings'].includes(item.getId())
       ),
     ])
+
+export default deskStructure

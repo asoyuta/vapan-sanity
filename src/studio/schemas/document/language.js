@@ -1,6 +1,6 @@
 import { IoLanguage } from 'react-icons/io5'
 
-export default {
+const language = {
   name: 'language',
   title: 'Language',
   icon: IoLanguage,
@@ -23,3 +23,5 @@ export default {
     },
   ],
 }
+
+export default language

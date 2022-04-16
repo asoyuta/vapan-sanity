@@ -21,7 +21,7 @@ type Line = {
   character: Character
   original: string
   translation: string
-  description: string
+  description: object[]
 }
 
 export type Dialog = {
@@ -29,7 +29,7 @@ export type Dialog = {
   _createdAt: string
   title: string
   mainImage: Image
-  description: string
+  description: object[]
   characters: Character[]
   originalUrl: string
   clipUrl: string
